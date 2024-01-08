@@ -10,27 +10,7 @@ public class Ex24_For {
 		 * 
 		*/
 		
-//		m1();
-		m4();
-	}
-
-	private static void m4() {
-		// 별찍기
-		for(int i=0; i<5; i++) {
-			for(int j=0; j<5; j++) {
-				System.out.print("*");
-			}
-			System.out.println();
-		}
-		System.out.println();
-
-		for(int i=0; i<5; i++) {
-			for(int j=0; j<=i; j++) {
-				System.out.print("*");
-			}
-			System.out.println();
-		}
-		
+		m1();
 	}
 
 	private static void m1() {
@@ -49,7 +29,7 @@ public class Ex24_For {
 		System.out.println();
 		
 		// 3중
-		for(int i=0; i<10; i++) { 
+		for(int i=0; i<10; i++) {
 			for(int j=0; j<10; j++) {
 				for(int k=0; k<10; k++) {
 					System.out.printf("i: %d, j: %d, k: %d\n", i,j,k);

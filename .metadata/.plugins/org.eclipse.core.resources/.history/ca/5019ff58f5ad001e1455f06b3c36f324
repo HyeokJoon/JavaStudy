@@ -1,0 +1,22 @@
+package com.test.java;
+
+public class Ex25_While {
+	public static void main(String[] args) {
+		
+		m1();
+	}
+
+	private static void m1() {
+		// 1~10까지 출력하시오.
+		for(int i=1; i<=10; i++) {
+			System.out.println(i);
+		}
+		System.out.println();
+		
+		int num=1;
+		while(num<=10) {
+			System.out.println(i);
+			num++;
+		}
+	}
+}
