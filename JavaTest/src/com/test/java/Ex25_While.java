@@ -9,7 +9,15 @@ public class Ex25_While {
 		
 		//m1();
 		//m2();
-		m3();
+//		m3();
+		m4();
+	}
+	
+
+	private static void m4() {
+		// test git push
+		System.out.println("hello git");
+		System.out.println("change");
 	}
 
 	private static void m3() throws IOException {
