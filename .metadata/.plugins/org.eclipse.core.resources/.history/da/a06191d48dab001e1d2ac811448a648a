@@ -1,0 +1,17 @@
+package com.test.java;
+
+public class Ex21_if {
+	public static void main(String[] args) {
+		m1();
+	}
+
+	private static void m1() {
+		
+		int num = 10;
+		if(num>0) {
+			System.out.println("num은 양수입니다.");
+			
+		}
+		System.out.println("종료");
+	}
+}

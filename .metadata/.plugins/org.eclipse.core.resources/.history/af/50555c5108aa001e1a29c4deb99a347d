@@ -1,0 +1,14 @@
+package com.test.java;
+
+public class Ex10_Casting {
+	public static void main(String[] args) {
+		
+		
+		byte b1;
+		short s1;
+		
+		b1 = 10;
+		s1 = b1;
+		System.out.println(s1);
+	}
+}

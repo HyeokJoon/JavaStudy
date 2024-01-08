@@ -1,0 +1,27 @@
+package com.test.question;
+
+public class Q011 {
+	public static void main(String[] args) {
+		result = add(n1, n2); 
+		System.out.println(result);
+
+		result = subtract(n1, n2);
+		System.out.println(result);
+
+		result = multiply(n1, n2);
+		System.out.println(result);
+
+		result = divide(n1, n2);
+		System.out.println(result);
+
+		result = mod(n1, n2);
+		System.out.println(result);
+	}
+	public static String add(int num1, int num2) {
+		return num1 + num2 + "";
+	}
+	public static String subtract(int num1, int num2) {return num1 - num2 + "";}
+	public static String multiply(int num1, int num2) {return num1 * num2 + "";}
+	public static String divide(int num1, int num2) {return num1 / num2 + "";}
+	public static String mod(int num1, int num2) {return num1 % num2 + "";}
+}

@@ -1,0 +1,14 @@
+package com.test.java;
+
+public class Ex18_Method {
+
+	public static void main(String[] args) {
+		
+		//요구사항] 선을 그리는 메서드를 선언하시오.
+		drawLine();
+		
+	}
+	public static void drawLine() {
+		System.out.println("==========");
+	}
+}

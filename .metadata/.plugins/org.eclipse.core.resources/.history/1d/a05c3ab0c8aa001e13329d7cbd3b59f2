@@ -1,0 +1,10 @@
+package com.test.java;
+
+public class Ex15_Method {
+	public static void main(String[] args) {
+	
+		//void > 반환타입
+		//hello > 메서드명 > 캐멀표기법
+		//() > 인자리스트
+	}
+}

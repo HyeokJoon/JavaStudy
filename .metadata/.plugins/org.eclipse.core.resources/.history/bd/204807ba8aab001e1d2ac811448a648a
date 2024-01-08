@@ -1,0 +1,10 @@
+package com.test.question;
+
+public class Q014 {
+	public static void main(String[] args) {
+		
+	}
+	public static int getTime(int station, int change, int time) {
+		
+	}
+}

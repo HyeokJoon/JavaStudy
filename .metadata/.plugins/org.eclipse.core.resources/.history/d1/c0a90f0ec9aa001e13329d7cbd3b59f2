@@ -1,0 +1,19 @@
+package com.test.java;
+
+public class Ex15_Method {
+	public static void main(String[] args) {
+	
+		//void > 반환타입
+		//hello > 메서드명 > 캐멀표기법
+		//() > 인자리스트
+		//요구사항] '홍길동'에게 인사하는 메서드를 구현하시오.
+		//요구사항] '아무개'에게 인사하는 메서드를 구현하시오.
+		hello();
+	}
+	
+	public static void hello() {
+		//구현부
+		System.out.println("홍길동님. 안녕하세요.");
+		System.out.println("아무개님. 안녕하세요.");
+	}
+}

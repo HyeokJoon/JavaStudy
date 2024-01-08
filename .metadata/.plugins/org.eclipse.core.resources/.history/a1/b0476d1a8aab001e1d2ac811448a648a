@@ -1,0 +1,11 @@
+package com.test.question;
+
+public class Q013 {
+	public static void main(String[] args) {
+		
+	}
+	public static String test(int kor, int eng, int math) {
+		double avg = (kor+eng+math) /3;
+		return (avg < 60 || kor < 40 || eng <40 || math < 40) ? "불합격" : "합격";
+	}
+}

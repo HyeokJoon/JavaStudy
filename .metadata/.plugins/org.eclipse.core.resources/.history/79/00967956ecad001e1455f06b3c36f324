@@ -1,0 +1,37 @@
+package com.test.java;
+
+public class Ex24_For {
+
+	public static void main(String[] args) {
+		//Ex24_for.java
+		
+		/*
+		 * 중첩된 for 문
+		 * 
+		*/
+		
+		m1();
+	}
+
+	private static void m1() {
+		// 단일
+		for(int i=0; i<10; i++) {
+			System.out.println("i: " + i);
+		}
+		System.out.println();
+		// 2중
+		for(int i=0; i<10; i++) {
+			for(int j=0; j<10; j++) {
+				System.out.println("안녕하세요.");
+			}
+			System.out.println();
+		}
+		System.out.println();
+		
+		// 3중
+		for(int i=0; i<10; i++) {
+			System.out.println("i: " + i);
+		}
+		System.out.println();
+	}
+}

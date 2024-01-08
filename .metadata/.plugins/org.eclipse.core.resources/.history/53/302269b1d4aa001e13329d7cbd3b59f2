@@ -1,0 +1,27 @@
+package com.test.java;
+
+public class Ex18_Method {
+
+	public static void main(String[] args) {
+		
+		//요구사항] 선을 그리는 메서드를 선언하시오.
+		//요구사항] -----
+		//요구사항] *****
+		
+		drawLine();
+		System.out.println("성적표");
+		drawLine();
+		
+	}
+	public static void drawLine() {
+		System.out.println("==========");
+	}
+
+	public static void drawLine2() {
+		System.out.println("----------");
+	}
+
+	public static void drawLine3() {
+		System.out.println("**********");
+	}
+}

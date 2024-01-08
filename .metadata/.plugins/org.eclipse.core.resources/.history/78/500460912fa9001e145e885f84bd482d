@@ -1,0 +1,23 @@
+package com.test.java;
+
+public class Ex02_Variable {
+
+	public static void main(String[] args) {
+
+		/*
+			자료형 + 변수
+			
+			variable
+			1. 변수 생성하기
+				- 자료형 변수명;
+			2. 변수 초기화
+				- 변수명 = 값;
+				- =(대입 연산자)
+		*/
+		
+		//int 국어
+		int kor;
+		
+		kor = 100;
+	}
+}
