@@ -15,13 +15,91 @@ public class Ex29_String {
 //		m8();
 //		m9();
 //		m10();
-		m11();
+//		m11();
+//		m12();
+//		m13();
+//		m14();
+		m15();
+	}
+
+	private static void m15() {
+		String txt = "홍길동,아무개,하하하,호호호,후후후";
+		String[] names = txt.split(",");
+		
+		for(int i=0; i<names.length; i++) {
+			System.out.println("이름: "+names[i]);
+		}
+	}
+
+	private static void m14() {
+		String txt = "안녕하세요. 홍길동입니다.";
+		
+		System.out.println(txt.replaceAll("홍길동", "아무무무개"));
+		
+		String content = "게시판 글을 씁니다 바보야!";
+		String word = "바보";
+		
+		//masking
+		System.out.println(content.replace("바보", "***"));
+		
+		txt = "    하나    둘    셋    ";
+		System.out.println(txt.trim());
+		System.out.println(txt.replace(" ", ""));
+		System.out.println(txt.replace("하나", ""));
+	}
+
+	private static void m13() {
+		
+		String txt = "안녕하세요. 홍길동입니다.";
+		if(txt.indexOf("홍길동") > -1) {
+			System.out.println(txt.indexOf("홍길동"));
+		}
+		if(txt.contains("홍길동")) {
+			System.out.println("O");
+		}
+	}
+
+	private static void m12() {
+		String jumin = "970408-2095748";
+		
+		//성별
+		System.out.println(jumin.charAt(7)=='1' ? "남자":"여자");
+		System.out.println(jumin.substring(7,8).equals("1")? "남자":"여자");
+		
+		//몇년생?
+		System.out.println("" + jumin.charAt(0) + jumin.charAt(1));
+		System.out.println(jumin.substring(0,2));
+		
+		//몇일생?
+		System.out.println(jumin.substring(4,6));
+		System.out.println();
+		
+		//파일 경로
+		String path = "C:\\class\\code\\java\\Hello.java";
+		
+		//1. 파일명 추출
+		int index = path.lastIndexOf("\\");
+		String filename = path.substring(index+1);
+		System.out.println("파일명: " + filename);
+		
+		//2. 파일명 > 확장자 없는 파일명 추출 > Hello
+		index = filename.lastIndexOf(".");
+		String filenameWithdoutExtension = filename.substring(0,index);
+		System.out.println("순수 파일명: " + filenameWithdoutExtension);
+		
+		//3. 확장자만 출력 > .java
+		String extension = filename.substring(index);
+		System.out.println("확장자명: " + extension);
 	}
 
 	private static void m11() {
 		String txt = "가나다라마바사아자차카타파하";
 		System.out.println(txt.substring(3, 7));
+		System.out.println(txt.substring(3));
 		
+		System.out.println(txt.charAt(4)); // > 문자 코드값
+		System.out.println(txt.substring(4,5));
+		System.out.println();
 	}
 
 	private static void m10() {
