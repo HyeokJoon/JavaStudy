@@ -6,8 +6,12 @@ public class Q084 {
 		String word = "길동";
 		int num = 0;
 		int idx = 0;
-		while(idx > content.length()-1) {
-			
+		while(true) {
+			idx = content.indexOf(word, idx);
+			if(idx == -1)
+				break;
+			idx++;
+			num++;
 		}
 		System.out.println(word + "를 총 "+num+"회 발견했습니다.");
 	}
