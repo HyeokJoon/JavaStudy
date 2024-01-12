@@ -60,7 +60,7 @@ class Employee {
 	public void setDepartment(String department) {
 		String[] departments = {"영업부", "기획부", "총무부", "개발부", "홍보부"};
 		for(int i=0; i<5; i++) {
-			if(departments[i] == department)
+			if(departments[i].equals(department))
 				this.department = department;
 		}
 	}
@@ -84,7 +84,11 @@ class Employee {
 	}
 
 	public void setTel(String tel) {
-		if(tel.charAt(3)!='-' || tel.charAt(8)!='-' || tel.length()!=13)
+		//010- 이게 0번인덱스에 있는지
+		//8번 인덱스에 -가 있는지
+		//길이가 13인지
+		
+		if(tel.indexOf("010-") != 0 || tel.charAt(8)!='-' || tel.length()!=13)
 			return;
 		this.tel = tel;
 	}
@@ -95,11 +99,11 @@ class Employee {
 	}
 
 	public void setBoss(Employee boss) {
-		if(boss == null)
+		if(boss == null) // 직속상사가 있는지
 			return;
-		if(boss.name == this.name)
+		if(boss.name.equals(this.name)) // 내가 아닌 다른사람인지
 			return; // 나 자신 불가능
-		if(boss.getDepartment().equals(this.department))
+		if(boss.getDepartment().equals(this.department)) // 같은 부서인지
 			this.boss = boss;
 	}
 

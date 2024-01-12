@@ -25,7 +25,7 @@ class Book {
 	private String isbn;
 	private int page;
 
-   //getter, setter
+	//getter, setter
 	//제목 : 읽기/쓰기, 최대 50자 이내(한글, 영어, 숫자, 공백)
 	public String getTitle() {
 		return title;

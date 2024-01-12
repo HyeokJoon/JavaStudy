@@ -27,19 +27,20 @@ class Note  {
 	private int page;
 	private String owner;
 	private int price;
-	
+
+	//setter, getter 구현
 	//크기 : 쓰기 전용, A3, A4, A5, B3, B4, B5
 	public void setSize(String size) {
-		if(size != "A3"&&size != "A4"&&size != "A5"&&size != "B3"&&size != "B4"&&size != "B5")
+		
+		if(!size.equals("A3")&&!size.equals("A4")&&!size.equals("A5")&&!size.equals("B3")&&!size.equals("B4")&&!size.equals("B5"))
 			return; // 해당되는 사이즈가 아님
 		this.size = size;
 	}
 	
 	//표지 색상 : 쓰기 전용, 검정색, 흰색, 노란색, 파란색
 	public void setColor(String color) {
-		if(color!="검정색" && color!="흰색" && color!="노란색" && color!="파란색")
-			return;
-		this.color = color;
+		if(color.equals("검정색") || color.equals("흰색") || color.equals("노란색") || color.equals("파란색"))
+			this.color = color;
 	}
 	
 	//페이지수 : 쓰기 전용, 10 ~ 200페이지 이내
@@ -60,17 +61,70 @@ class Note  {
 		}
 		this.owner = owner;
 	}
+	
+	//가격 : Setter,Getter 구현 안함. 추후 info() 메소드에서 사용하기 위해 아래와 같은
+	
 
-	public int getPrice() {
-		return price;
-	}
-
-	public void setPrice(int price) {
-		this.price = price;
-	}
-
-	//setter, getter 구현
 	public String info() {
-         return ..
+		String tmp = "";
+		if(this.owner == null)
+		{
+			tmp += "■■■■■■ 노트 정보 ■■■■■■" + "\n";
+			tmp += "주인 없는 노트\n";
+			tmp += "■■■■■■■■■■■■■■■■■■■■■■■■\n";
+			return tmp;
+		}
+        
+         tmp += "■■■■■■ 노트 정보 ■■■■■■" + "\n";
+         tmp += "소유자 : " + this.owner + "\n"; 
+         tmp += "특성 : " + this.color + thickness(this.page) + this.size + "노트\n"; 
+         tmp += "가격 : " + clacPrice(this.page, this.size, this.color) + "원\n";
+         tmp += "■■■■■■■■■■■■■■■■■■■■■■■■\n";
+        
+         return tmp;
    }
+
+	private String clacPrice(int page, String size, String color) {
+		int price = 400;
+		switch (size) {
+		case "A3":
+			price += 400;
+			break;
+		case "A4":
+			price += 200;
+			break;
+		case "B3":
+			price += 500;
+			break;
+		case "B4":
+			price += 300;
+			break;
+		case "B5":
+			price += 100;
+			break;
+		}
+		switch(color) {
+		case "검정색":
+			price += 100;
+			break;
+		case "노란색":
+			price += 200;
+			break;
+		case "파란색":
+			price += 200;
+			break;
+		}
+		price += page * 10;
+		return String.format("%,d", price);
+	}
+
+	private String thickness(int page2) {
+		if(page2 <= 50 && page2 >=10)
+			return " 얇은 ";
+		if(page2 <= 100 && page2 >=51)
+			return " 보통 ";
+		if(page2 <= 200 && page2 >=101)
+			return " 두꺼운 ";
+		return null;
+	}
 }
