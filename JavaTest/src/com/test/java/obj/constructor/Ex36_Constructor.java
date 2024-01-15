@@ -71,3 +71,21 @@ class Cup {
 		this.size = size;
 	}
 }
+
+
+class Mouse{
+	private int a;
+	private int b;
+	private static int c;
+	
+	//객체 생성자 > 객체 내부를 초기화
+	public Mouse(int a, int b) {
+		super();
+		this.a = a;
+		this.b = b;
+	}
+	//정적 생성자
+	static {
+		Mouse.c = 0;
+	}
+}
