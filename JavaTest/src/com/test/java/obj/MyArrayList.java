@@ -8,11 +8,16 @@ public class MyArrayList {
 	
 	
 	public MyArrayList() {
-		this.list = new String[4];
-		this.index = 0;
+		this(4);
 	}
 	
 	
+	public MyArrayList(int capacity) {
+		this.list = new String[capacity];
+		this.index = 0;
+	}
+
+
 	public boolean add(String value) {
 		if(checkLength()) {
 			doubleList();
@@ -112,7 +117,7 @@ public class MyArrayList {
 		}
 		return -1;
 	}
-
+	
 	public void clear() {
 		this.list = new String[4];
 		this.index = 0;
@@ -128,6 +133,19 @@ public class MyArrayList {
 		}
 		tmp += "]\r\n";
 		return tmp;
+	}
+
+
+	public void trimToSize() {
+		
+		String[] temp = new String[this.index];
+		
+		for(int i=0; i<this.index; i++) {
+			temp[i] = this.list[i];
+		}
+		this.list = temp;
+		
+		
 	}
 	
 }

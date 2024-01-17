@@ -82,6 +82,26 @@ public class Ex54_ArrayList {
 		System.out.println(list.size());
 //		System.out.println(list);
 		
+		//trimToSize()
+		list.add("홍길동");
+		list.add("아무개");
+		list.add("강아지");
+		list.add("고양이");
+		list.add("병아리");
+		System.out.println(list);
+		
+		list.trimToSize();
+		System.out.println(list);
+		list.add("망아지");
+		
+		MyArrayList list2 = new MyArrayList(100);
+		for(int i=0; i<100; i++) {
+			list2.add(i+"");
+		}
+		System.out.println(list2);
+		
+		
+		
 	}
 
 	private static void m7() {
