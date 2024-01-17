@@ -3,6 +3,8 @@ package com.test.java.collection;
 import java.util.ArrayList;
 import java.util.Random;
 
+import com.test.java.obj.MyArrayList;
+
 public class Ex54_ArrayList {
 	public static void main(String[] args) {
 		
@@ -11,7 +13,88 @@ public class Ex54_ArrayList {
 //		m3();
 //		m4();
 //		m5();
-		m6();
+//		m6();
+//		m7();
+		m8();
+	}
+
+	private static void m8() {
+		//배열 생성
+		MyArrayList list = new MyArrayList();
+		
+		System.out.println(list);
+		
+		//추가
+		list.add("홍길동");
+		list.add("아무개");
+		list.add("하하하");
+//		list.add("호호호");
+		System.out.println(list);
+//		list.add("후후후");
+//		list.add("헤헤헤");
+//		list.add("가가가");
+//		list.add("나나나");
+//		System.out.println(list);
+//		list.add("다다다");
+//		System.out.println(list);
+		
+		
+		//읽기
+		System.out.println(list.get(0));
+		System.out.println(list.get(1));
+		System.out.println(list.get(2));
+
+		//개수
+		System.out.println(list.size());
+
+		//탐색 + 읽기
+		for (int i=0; i<list.size(); i++) {
+		      System.out.println(list.get(i));
+		}
+
+		//수정
+		list.set(0, "우하하");
+		System.out.println(list.get(0));
+		
+		//삭제
+		list.remove(1);
+//		System.out.println(list);
+		for (int i=0; i<list.size(); i++) {
+		      System.out.println(list.get(i));
+		}
+
+		//삽입
+		list.add(1, "호호호");
+//		System.out.println(list);
+		for (int i=0; i<list.size(); i++) {
+		      System.out.println(list.get(i));
+		}
+
+		//검색
+		if (list.indexOf("홍길동") > -1) {
+		      System.out.println("홍길동 있음");
+		} else {
+		      System.out.println("홍길동 없음");
+		}
+
+		//초기화
+		list.clear();
+		System.out.println(list.size());
+//		System.out.println(list);
+		
+	}
+
+	private static void m7() {
+		ArrayList<Integer> nums = new ArrayList<>();
+		System.out.println(nums.size());
+		
+		nums.add(10);
+		nums.add(20);
+		nums.add(30);
+		nums.add(40);
+		
+		System.out.println(nums.size());
+		
 	}
 
 	private static void m6() {
