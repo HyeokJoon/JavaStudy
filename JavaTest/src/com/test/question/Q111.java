@@ -14,9 +14,14 @@ public class Q111 {
 		
 		File file = new File(path);
 		if(file.exists()) {
+			
 			String name = file.getName();
-			String type = file.getName().split("\\.")[1];
-			long size = file.length();
+			
+			int idx = file.getName().lastIndexOf(".");
+			String type = file.getName().substring(idx+1);
+//			String type = file.getName().split("\\.")[1];
+			
+			double size = file.length();
 			int cnt = 0;
 			if(size > 1024) {
 				cnt++;
@@ -24,7 +29,7 @@ public class Q111 {
 			}
 			System.out.println("파일명 : " + name);
 			System.out.println("종류: " + type + " 파일");
-			System.out.println("파일 크기: " + size + units[cnt]);
+			System.out.printf("파일 크기: %.1f %s",size,units[cnt]);
 			
 		}
 		else {
