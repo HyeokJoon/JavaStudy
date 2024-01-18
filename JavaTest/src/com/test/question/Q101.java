@@ -49,6 +49,7 @@ public class Q101 {
 	}
 }
 class Barista{
+	
 	public Espresso makeEspresso(int bean) {
 		Espresso e = new Espresso(bean);
 		Coffee.bean+=bean;
