@@ -81,7 +81,7 @@ public class Ex58_File {
 				count(subdir);
 			}
 		}
-		
+		//빈폴더
 		dir.delete();
 	}
 
