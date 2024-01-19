@@ -1,4 +1,4 @@
-package com.test.java.collection;
+package com.test.java.file;
 
 public class test {
 	
