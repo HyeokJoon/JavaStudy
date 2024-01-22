@@ -22,7 +22,7 @@ public class Q118 {
 		MyComparator c = new MyComparator(); 
 		Collections.sort(list,c);
 		
-		System.out.println("[파일명]\t\t\t[크기]\t\t\t[파일이 들어있는 폴더]");
+		System.out.printf("%15s%15s%20s\n","[파일명]","[크기]","[파일이 들어있는 폴더]");
 		for(File item : list) {
 			System.out.println(item.getParent());
 			String parent =item.getParent();

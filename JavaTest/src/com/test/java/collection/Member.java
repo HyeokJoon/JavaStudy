@@ -5,6 +5,7 @@ import java.util.Objects;
 public class Member {
 	private String name;
 	private int age;
+	
 	public Member(String name,int age) {
 		super();
 		this.age = age;
@@ -35,6 +36,7 @@ public class Member {
 		Member other = (Member) obj;
 		return age == other.age && Objects.equals(name, other.name);
 	}
+	
 	public void setAge(int age) {
 		this.age = age;
 	}
