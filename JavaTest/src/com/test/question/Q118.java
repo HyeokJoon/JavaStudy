@@ -22,19 +22,14 @@ public class Q118 {
 		MyComparator c = new MyComparator(); 
 		Collections.sort(list,c);
 		
-		System.out.printf("%15s%15s%20s\n","[파일명]","[크기]","[파일이 들어있는 폴더]");
+		System.out.printf("%30s%15s%20s\n","[파일명]","[크기]","[파일이 들어있는 폴더]");
 		for(File item : list) {
-			System.out.println(item.getParent());
 			String parent =item.getParent();
 			int idx = parent.lastIndexOf("\\");
 			
-//			System.out.println();
-			
 			String tmp = "";
-			System.out.println(item.getName()+"\t\t\t"+item.length()+"\t\t\t"+parent.substring(idx+1));
+			System.out.printf("%30s%15s%20s\n",item.getName(),item.length(),parent.substring(idx+1));	
 		}
-		
-		
 	}
 
 	private static void searchFile(File dir, ArrayList<File> list) {
