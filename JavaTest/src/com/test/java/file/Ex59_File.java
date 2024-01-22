@@ -1,9 +1,14 @@
 package com.test.java.file;
 
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
+import java.io.FileReader;
 import java.io.FileWriter;
+import java.io.IOException;
+import java.io.InputStreamReader;
 import java.util.Scanner;
 
 public class Ex59_File {
@@ -28,7 +33,142 @@ public class Ex59_File {
 //		m1();
 //		m2();
 //		m3();
-		m4();
+//		m4();
+//		m5();
+//		m6();
+//		m7();
+		m8();
+	}
+
+	private static void m8() {
+		
+		//성적관리
+		//- 성적표 출력
+		//- 성적 파일(score.txt)
+		 
+		//*****데이터 구조 설계
+		//- 이름, 국어, 영어, 수학
+		
+		try {
+			// . 을 사용하면 프로젝트 경로를 가르켜줌
+			BufferedReader reader = new BufferedReader(new FileReader(".\\dat\\score.txt"));
+			
+//			File file = new File(".\\dat\\score.txt");
+//			System.out.println(file.exists());
+			
+			System.out.println("=============================");
+			System.out.println("             성적표");
+			System.out.println("=============================");
+			System.out.println("[이름]\t[국어]\t[영어]\t[수학]");
+			
+			String line = null;
+			while((line = reader.readLine()) != null) {
+				
+				System.out.println(makeFormat(line));
+			}
+			
+		} catch (Exception e) {
+			System.out.println("Ex59_File.m8");
+			e.printStackTrace();
+		}
+		
+		
+		
+		
+	}
+
+	private static String makeFormat(String line) {
+		
+		String[] list = line.split(",");
+		String temp = "";
+		temp += String.format("%4s\t", list[0]); 
+		temp += String.format("%4d\t", Integer.parseInt(list[1])); 
+		temp += String.format("%4d\t", Integer.parseInt(list[2])); 
+		temp += String.format("%4d", Integer.parseInt(list[3])); 
+		
+		return temp;
+	}
+
+	private static void m7() {
+		try {
+			
+			Scanner scan = new Scanner(System.in);
+			System.out.print("자바 파일명: "); // Ex01_DataType.java
+			String filename = scan.nextLine();
+			
+			String path = "C:\\class\\code\\java\\JavaTest\\src\\com\\test\\java\\" + filename;
+			BufferedReader reader = new BufferedReader(new FileReader(path));
+			
+			String line = null;
+			int number = 1; // 줄 번호
+			
+			
+			while((line = reader.readLine()) !=null) {
+				System.out.printf("%-3d: ",number++);
+				System.out.println(line);
+			}
+			
+			
+		} catch (Exception e) {
+			System.out.println("Ex59_File.m7");
+			e.printStackTrace();
+		}
+		
+	}
+
+	private static void m6() {
+		// 
+		try {
+//			BufferedWriter writer = new BufferedWriter(new FileWriter("C:\\class\\code\\java\\file\\list.txt"));
+//			
+//			writer.write(65);
+//			writer.write("문자열");
+//			
+//			
+//			writer.close();
+						
+			BufferedReader reader = new BufferedReader(new FileReader("C:\\class\\code\\java\\file\\list.txt"))	;
+//			String line = reader.readLine();
+//			System.out.println(line);
+//			line = reader.readLine();
+//			System.out.println(line);
+//			line = reader.readLine();
+//			System.out.println(line);
+			
+			String line = null;
+			while((line = reader.readLine()) != null) {
+				System.out.println(line);
+			}
+			
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
+
+	private static void m5() {
+		//파일 읽기
+		
+		try {
+			
+			//FileInputSteam > FileReader
+			FileReader reader = new FileReader("C:\\class\\code\\java\\file\\data.txt");
+			
+//			int code = reader.read();
+//			System.out.println((char)code);
+//			
+			int code = -1;
+			while((code = reader.read()) != -1) {
+				System.out.print((char)code);
+			}
+			
+			reader.close();
+			
+			
+		} catch (Exception e) {
+			System.out.println("Ex59_File.m5");
+			e.printStackTrace();
+		}
+		
 	}
 
 	private static void m4() {
