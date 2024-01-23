@@ -10,6 +10,7 @@ import java.util.HashSet;
 import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Optional;
 import java.util.Set;
 import java.util.stream.IntStream;
 import java.util.stream.Stream;
@@ -31,7 +32,52 @@ public class Ex68_Stream {
 //		m6();
 //		m7();
 //		m8();
-		m9();
+//		m9();
+		m10();
+	}
+
+	private static void m10() {
+		List<Integer> nums = Data.getIntList();
+		
+		//Optional<Integer>
+		System.out.println(nums.stream().max((o1, o2) -> o1-o2));
+		
+		System.out.println(nums.stream().max((o1, o2) -> o1-o2).get());
+		
+//		nums.clear();
+		
+		Optional<Integer> result = nums.stream().max((o1, o2) -> o1-o2);
+		System.out.println(result);
+		
+		
+		Optional<User> user = Data.getUserList()
+				.stream()
+				.max((user1,user2)->user1.getHeight() - user2.getHeight());
+		System.out.println(user.get());
+		
+		Optional<User> user3 = Data.getUserList()
+				.stream()
+				.min((user1,user2)->user1.getHeight() - user2.getHeight());
+		System.out.println(user3.get());
+		
+		
+		//IntStream == nums.stream().mapToInt(n->n)
+		System.out.println(nums.stream().mapToInt(n -> n).sum());
+		
+		//OptionalDouble 반환
+		System.out.println(nums.stream().mapToInt(n -> n).average().getAsDouble());
+		
+		
+		//남자 평균 키?
+		double height = Data.getUserList()
+							.stream()
+							.filter(u -> u.getGender() == 1)
+							.mapToInt(u -> u.getHeight())
+							.average()
+							.getAsDouble();
+		System.out.println(height);
+		
+		
 	}
 
 	private static void m9() {
