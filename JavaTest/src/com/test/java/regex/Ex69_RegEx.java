@@ -1,5 +1,6 @@
 package com.test.java.regex;
 
+import java.util.Scanner;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -38,9 +39,257 @@ public class Ex69_RegEx {
 //		m2();
 //		m3();
 //		m4();
-		m5();
+//		m5();
+		m6();
 		
 		
+	}
+
+	private static void m6() {
+		
+		Scanner scan = new Scanner(System.in);
+		
+//		register1(scan);
+		register2(scan);
+		
+	}
+	//정규식을 사용한 버전
+	private static void register2(Scanner scan) {
+		
+		System.out.println("[회원가입]");
+		String id = "";
+		String pw = "";
+		String name = "";
+		int age = 0;
+		
+		while(true) {
+			System.out.printf("아이디: ");
+			id = scan.nextLine();
+			if(invaliedID2(id)) {
+				System.out.println("필수값, 4~12자 이내, 영문자 + 숫자 + _ , 숫자 시작 x");
+			}
+			else {
+				break;
+				//System.out.println("올바른 아이디");
+			}
+		}
+		while(true) {
+			System.out.printf("암호: ");
+			pw = scan.nextLine();
+			if(invaliedPw2(pw)) {
+				System.out.println("필수값, 4~12자 이내");
+			}
+			else {
+				break;
+			}
+		}
+		
+
+		while(true) {
+			System.out.printf("이름: ");
+			name = scan.nextLine();
+			
+			if(invalidateName2(name)) {
+				System.out.println("필수값, 2~4자 이내, 한글만");
+			}else {
+				break;
+			}
+			
+		}
+
+		while(true) {
+			System.out.printf("나이: ");
+			age = scan.nextInt();
+			scan.nextLine();
+			
+			if(invalidateAge2(age)) {
+				System.out.println("필수값, 숫자만, 1~120");
+			}else {
+				break;
+			}
+			
+		}
+		
+		System.out.println("회원 가입 처리...");
+		System.out.println("종료");
+
+		
+		
+	}
+
+	private static boolean invalidateAge2(int age) {
+		
+//		String regex = "[01]?[0-2]?[0-9]?";
+		
+		return false;
+	}
+
+	private static boolean invalidateName2(String name) {
+		
+		String regex = "^[가-힣]{2,4}$";
+		
+		Pattern p1 = Pattern.compile(regex);
+		Matcher m1 = p1.matcher(name);
+		
+		//찾으면 true, 못찾으면 false
+		return !m1.find();
+	}
+
+	private static boolean invaliedPw2(String pw) {
+		
+		String regex = "^.{4,12}$";
+
+		Pattern p1 = Pattern.compile(regex);
+		Matcher m1 = p1.matcher(pw);
+		
+		//찾으면 true, 못찾으면 false
+		return !m1.find();
+		
+	}
+
+	private static boolean invaliedID2(String id) {
+		//필수값, 4~12자 이내, 영문자 + 숫자 + _ , 숫자 시작 x
+		String regex = "^[A-Za-z_][A-Za-z0-9_]{3,11}$";
+		Pattern p1 = Pattern.compile(regex);
+		Matcher m1 = p1.matcher(id);
+		
+		//찾으면 true, 못찾으면 false
+		return !m1.find();
+	}
+
+	private static void register1(Scanner scan) {
+		String id = "";
+		String pw = "";
+		String name = "";
+		int age = 0;
+		
+//		System.out.println("[회원가입]");
+//		System.out.printf("아이디: ");
+//		id = scan.nextLine();
+//		if(invaliedID(id)) {
+//			System.out.println("필수값, 4~12자 이내, 영문자 + 숫자 + _ , 숫자 시작 x");
+//		}
+//		else {
+//			System.out.println("올바른 아이디");
+//		}
+
+		System.out.println("[회원가입]");
+		while(true) {
+			System.out.printf("아이디: ");
+			id = scan.nextLine();
+			if(invaliedID(id)) {
+				System.out.println("필수값, 4~12자 이내, 영문자 + 숫자 + _ , 숫자 시작 x");
+			}
+			else {
+				break;
+				//System.out.println("올바른 아이디");
+			}
+		}
+		
+		while(true) {
+			System.out.printf("암호: ");
+			pw = scan.nextLine();
+			if(invaliedPw(pw)) {
+				System.out.println("필수값, 4~12자 이내");
+			}
+			else {
+				break;
+			}
+		}
+		
+		while(true) {
+			System.out.printf("이름: ");
+			name = scan.nextLine();
+			
+			if(invalidateName(name)) {
+				System.out.println("필수값, 2~4자 이내, 한글만");
+			}else {
+				break;
+			}
+			
+		}
+
+		while(true) {
+			System.out.printf("나이: ");
+			age = scan.nextInt();
+			scan.nextLine();
+			
+			if(invalidateAge(age)) {
+				System.out.println("필수값, 숫자만, 1~120");
+			}else {
+				break;
+			}
+			
+		}
+		
+		System.out.println("회원 가입 처리...");
+		System.out.println("종료");
+	}
+
+	private static boolean invalidateAge(int age) {
+		
+		//1~120
+		if(age < 1 || age > 120)
+			return true;
+		
+		return false;
+	}
+
+	private static boolean invalidateName(String name) {
+		
+		//필수값
+		if(name.equals("") || name == null)
+			return true;
+		
+		//2~4자 이내
+		if(name.length() <2 || name.length() > 4)
+			return true;
+		
+		//한글만
+		for(int i=0; i<name.length(); i++) {
+			char c = name.charAt(i);
+			if(c<'가' || c>'힣')
+				return true;
+		}
+		
+		
+		return false;
+	}
+
+	private static boolean invaliedPw(String pw) {
+		
+		//필수값
+		if(pw.equals("") || pw == null)
+			return true;
+		
+		//4~12자 이내
+		if(pw.length() <4 || pw.length() > 12)
+			return true;
+		
+		return false;
+	}
+
+	private static boolean invaliedID(String id) {
+		//필수값
+		if(id.equals("") || id == null)
+			return true;
+		
+		//길이
+		if(id.length() < 4 || id.length() >12)
+			return true;
+		
+		//영문자 + 숫자 + _
+		for(int i=0;i <id.length(); i++) {
+			char c = id.charAt(i);
+			if((c<'A' || c>'Z') && (c<'a' || c>'z') && (c<'0' || c>'9') && c!='_')
+				return true;
+		}
+		//숫자로 시작
+		char c = id.charAt(0);
+		if(c>='0' && c<='9')
+			return true;
+		
+		return false;
 	}
 
 	private static void m5() {
@@ -131,7 +380,6 @@ public class Ex69_RegEx {
 //			
 //			System.out.println(item);
 			
-		
 	}
 
 	private static void m1() {
